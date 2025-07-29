@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build":"pnpm build:ember-debug && ember build",
+    "build": "pnpm build:ember-debug && ember build",
     "build:ember-debug": "pnpm --filter ember-debug build",
     "build:production": "pnpm build:ember-debug && EMBER_ENV=production node scripts/download-panes.js && ember build --environment production && gulp compress:chrome && gulp compress:firefox && gulp clean-tmp",
     "changelog": "github_changelog_generator -u emberjs -p ember-inspector --since-tag v3.8.0",
@@ -199,6 +199,11 @@
     },
     "npm": {
       "publish": false
+    }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "ember-cli-inject-live-reload": "patches/ember-cli-inject-live-reload.patch"
     }
   }
 }
